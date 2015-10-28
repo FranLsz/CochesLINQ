@@ -10,18 +10,18 @@ namespace CochesLINQ.Clases
     {
         public override string ToString()
         {
-            return $"\nMatricula -> {Matricula}\nModelo -> {Modelo}\nAño de fabricación -> {AñoFabricacion}";
+            return $"\nMatricula -> {Matricula}\nModelo -> {Modelo}\nAño de fabricación -> {AFabricacion}";
         }
 
-        public Coche(string matricula, string modelo, int añoFabricacion)
+        public Coche(string matricula, string modelo, int aFabricacion)
         {
             Matricula = matricula;
             Modelo = modelo;
-            AñoFabricacion = añoFabricacion;
+            AFabricacion = aFabricacion;
         }
 
         public string Matricula { get; set; }
         public string Modelo { get; set; }
-        public int AñoFabricacion { get; set; }
+        public int AFabricacion { get; set; }
     }
 }
