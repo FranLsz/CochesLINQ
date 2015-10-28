@@ -17,7 +17,7 @@ namespace CochesLINQ
 
             if (q != null)
                 throw new CocheMatriculaExistenteError(
-                    $"La matricula {c.Matricula} ya existe en la lista, y pertenece al modelo {q.Modelo} fabricado en {q.AñoFabricacion}");
+                    $"La matricula {c.Matricula} ya existe en la lista, y pertenece al modelo {q.Modelo} fabricado en {q.AFabricacion}");
 
             coches.Add(c);
             return true;
@@ -72,7 +72,7 @@ namespace CochesLINQ
                         }
                         else
                         {
-                            Console.WriteLine("No hay empleados para mostrar");
+                            Console.WriteLine("No hay vehiculos para mostrar");
                         }
 
                         Console.WriteLine("---------");
@@ -87,7 +87,7 @@ namespace CochesLINQ
                             Console.WriteLine($"No se ha encontrado ningun registro para la matricula {ma}");
                         else
                         {
-                            Console.WriteLine($"Modelo: {resMa.Modelo} \nAño de fabricación: {resMa.AñoFabricacion}");
+                            Console.WriteLine($"Modelo: {resMa.Modelo} \nAño de fabricación: {resMa.AFabricacion}");
                         }
 
                         break;
@@ -95,14 +95,14 @@ namespace CochesLINQ
                         Console.WriteLine("/////////");
                         Console.WriteLine("Introduce el modelo a buscar: ");
                         var mo = Console.ReadLine();
-                        var resMo = coches.Where(o => o.Modelo == mo).OrderBy(o => o.AñoFabricacion);
+                        var resMo = coches.Where(o => o.Modelo == mo).OrderBy(o => o.AFabricacion);
 
                         if (resMo.Any())
                         {
                             foreach (var c in resMo)
                             {
                                 Console.WriteLine("---");
-                                Console.WriteLine($"Matricula: {c.Matricula} \nAño de fabricación: {c.AñoFabricacion}");
+                                Console.WriteLine($"Matricula: {c.Matricula} \nAño de fabricación: {c.AFabricacion}");
                                 Console.WriteLine("---");
                             }
                         }
@@ -120,14 +120,14 @@ namespace CochesLINQ
                         Console.WriteLine("Introduce la fecha de fabricación a buscar: ");
                         int fech;
                         Int32.TryParse(Console.ReadLine(), out fech);
-                        var resmf = coches.Where(o => o.Modelo == mod && o.AñoFabricacion == fech).OrderByDescending(o=> o.Matricula);
+                        var resmf = coches.Where(o => o.Modelo == mod && o.AFabricacion == fech).OrderByDescending(o=> o.Matricula);
 
                         if (resmf.Any())
                         {
                             foreach (var c in resmf)
                             {
                                 Console.WriteLine("---");
-                                Console.WriteLine($"Matricula: {c.Matricula}  \nModelo: {c.Modelo} \nAño de fabricación: {c.AñoFabricacion}");
+                                Console.WriteLine($"Matricula: {c.Matricula}  \nModelo: {c.Modelo} \nAño de fabricación: {c.AFabricacion}");
                                 Console.WriteLine("---");
                             }
                         }
